@@ -23,9 +23,13 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.0.0",
-    "@vue/cli-plugin-eslint": "^4.0.0",
+    "@vue/cli-plugin-eslint": "^4.4.4",
+    "@vue/cli-plugin-typescript": "^4.4.4",
     "@vue/cli-service": "^4.0.0",
+    "@vue/composition-api": "^0.6.3",
+    "@vue/eslint-config-typescript": "^5.0.2",
     "babel-eslint": "^10.0.1",
+    "babel-preset-typescript-vue": "^1.1.1",
     "bombino-commands": "^1.0.4",
     "boxen": "^4.1.0",
     "chalk": "^2.4.2",
@@ -37,6 +41,7 @@
     "ora": "^4.0.2",
     "shelljs": "^0.8.3",
     "types-for-adobe": "^1.5.0",
+    "typescript": "^3.9.5",
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
@@ -46,7 +51,8 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "@vue/typescript"
     ],
     "rules": {},
     "parserOptions": {

@@ -81,21 +81,22 @@
 */
 
 import { evalScript } from 'brutalism'
-export default {
+import { defineComponent } from '@vue/composition-api'
+export default defineComponent({
   components: {
     "battleaxe-logo": require('./components/battleaxeLogo.vue').default,
     "brutalism-title": require('./components/brutalismTitle.vue').default
   },
-  methods: {
-    testClick(item) {
+  setup() {
+    const testClick = (item) => {
 			console.log("Context menu click:", item);
-    },
-    checkMenu(item, index, val) {
+    }
+    const checkMenu = (item, index, val) => {
 			console.log(item, index, val);
-    },
+    }
     // Can invoke any function as await evalScript(`functionName('${parameterVar}')`) if script is preloaded
     // Check out the "script-path" prop of <Panel> component above for easy script file load.
-    async runTestScript() {
+    const runTestScript = async () => {
       let result = await evalScript(`
         function test() {
           alert('Hello world!')
@@ -104,9 +105,15 @@ export default {
         test();
       `)
       console.log(result)
-    },
+    }
+
+    return {
+      testClick,
+      checkMenu,
+      runTestScript
+    }
   }
-};
+});
 </script>
 
 <style>
